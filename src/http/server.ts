@@ -27,6 +27,8 @@ import { getPopularProducts } from './routes/get-popular-products'
 import { dispatchOrder } from './routes/dispatch-order'
 import { deliverOrder } from './routes/deliver-order'
 
+const allowedOrigins = ['https://pizza-shop-web.netlify.app']
+
 const app = new Elysia()
   .use(
     cors({
@@ -40,7 +42,11 @@ const app = new Elysia()
           return false
         }
 
-        return true
+        if (process.env.NODE_ENV === 'development') {
+          return true
+        }
+
+        return allowedOrigins.includes(origin)
       },
     }),
   )
