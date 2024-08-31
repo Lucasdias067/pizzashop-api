@@ -27,8 +27,6 @@ import { getPopularProducts } from './routes/get-popular-products'
 import { dispatchOrder } from './routes/dispatch-order'
 import { deliverOrder } from './routes/deliver-order'
 
-const allowedOrigins = ['https://pizza-shop-web.netlify.app']
-
 const app = new Elysia()
   .use(
     cors({
@@ -41,12 +39,7 @@ const app = new Elysia()
         if (!origin) {
           return false
         }
-
-        if (process.env.NODE_ENV === 'development') {
-          return true
-        }
-
-        return allowedOrigins.includes(origin)
+        return true
       },
     }),
   )
@@ -93,7 +86,7 @@ const app = new Elysia()
     }
   })
 
-app.listen(process.env.PORT || 3333)
+app.listen(3333)
 
 console.log(
   `🔥 HTTP server running at ${app.server?.hostname}:${app.server?.port}`,
