@@ -36,7 +36,10 @@ const app = new Elysia()
       origin: (request): boolean => {
         const origin = request.headers.get('origin')
 
-        const allowedOrigins = ['https://pizzashop-web.onrender.com']
+        const allowedOrigins = [
+          'https://pizzashop-web.onrender.com',
+          'http://localhost:5173',
+        ]
 
         if (!origin) {
           return false

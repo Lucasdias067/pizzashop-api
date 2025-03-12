@@ -9,7 +9,7 @@
     "migrate": "bun src/db/migrate.ts",
     "seed": "bun src/db/seed.ts"
   },
-  "author": "Diego Fernandes <diego.schell.f@gmail.com>",
+  "author": "Lucas Dias",
   "license": "MIT",
   "dependencies": {
     "@elysiajs/cookie": "^0.7.0",
